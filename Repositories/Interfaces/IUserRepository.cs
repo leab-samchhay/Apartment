@@ -1,0 +1,18 @@
+using APARTMENT_API.Helpers;
+using APARTMENT_API.Model;
+
+namespace APARTMENT_API.Repositories.Interfaces
+{
+    public interface IUserRepository
+    {
+        Task<PagedResult<ApplicationUser>> GetUserByPageAsync(int page = 1, int pageSize = 10);
+        Task<List<ApplicationUser>> GetUsersAsync();
+        Task<ApplicationUser?> GetUserByIdAsync(int userId);
+        Task<ApplicationUser?> GetUserByNameAsync(string username);
+        Task<ApplicationUser?> GetUserByEmailAsync(string email);
+        Task<ApplicationUser?> Login(ApplicationUser request);
+        Task<ApplicationUser> Retister(ApplicationUser request);
+        Task<ApplicationUser> Update(ApplicationUser request);
+        Task<bool> Delete(int id);
+    }
+}
